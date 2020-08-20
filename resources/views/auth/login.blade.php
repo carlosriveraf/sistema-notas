@@ -49,6 +49,7 @@
                                 </div>
                                 <div class="card-body">
                                     <form class="form-signin" role="form" action="{{ route('login') }}" method="POST" onsubmit="myButton.disabled = true; return true;">
+                                        @csrf
                                         <div class="form-group">
                                             {{-- <label class="small mb-1" for="inputEmailAddress">Email</label>
                                             <input class="form-control py-4" id="inputEmailAddress" type="text" placeholder="Enter email address"> --}}
