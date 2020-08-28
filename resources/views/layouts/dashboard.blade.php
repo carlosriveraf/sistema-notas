@@ -142,9 +142,12 @@
         </nav>
              
         <div id="layoutSidenav">
-            @yield('nav')
-
-            @yield('content')
+            {{--@yield('nav')--}}
+            @include('administrador.nav')
+            <div id="layoutSidenav_content">
+                @yield('content')
+                @include('footer')
+            </div>
         </div>
         
         @yield('scripts')

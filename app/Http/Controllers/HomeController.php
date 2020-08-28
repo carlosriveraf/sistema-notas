@@ -24,7 +24,7 @@ class HomeController extends Controller
     public function index()
     {
         //if (Administrador::where('DNI', Auth::user()->DNI)->exists()) {
-            return view('alumno.home');
+            return view('administrador.home');
         //} else {
             //echo "no hay vista implementada";
         //}
