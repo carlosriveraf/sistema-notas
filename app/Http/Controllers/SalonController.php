@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Salon;
+
 class SalonController extends Controller
 {
     /**
@@ -13,7 +15,8 @@ class SalonController extends Controller
      */
     public function index()
     {
-        return view('administrador.salon');
+        $salones = Salon::all();
+        return view('administrador.salon', compact('salones'));
     }
 
     /**
@@ -34,7 +37,13 @@ class SalonController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $salon = new Salon();
+        $salon->grado = $request->grado;
+        $salon->seccion = $request->seccion;
+        $salon->DNI_ADMIN = $request->DNI_ADMIN;
+        $salon->nivel = $request->nivel;
+        $salon->save();
+        return redirect()->route('salon.index');
     }
 
     /**
@@ -77,8 +86,12 @@ class SalonController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($grado, $seccion)
     {
-        //
+        $salon = Salon::where([
+            ['grado', '=', $grado],
+            ['seccion', '=', $seccion]
+        ])->delete();
+        return redirect()->route('salon.index');
     }
 }
