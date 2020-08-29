@@ -10,7 +10,7 @@
 </head>
 <body class="nav-fixed">
         <nav class="topnav navbar navbar-expand shadow navbar-light bg-white" id="sidenavAccordion">
-            <a href="#" class="navbar-brand d-none d-sm-block">Nombre Institución</a>
+            <a href="/home" class="navbar-brand d-none d-sm-block">Nombre Institución</a>
             <button class="btn btn-icon btn-transparent-dark order-1 order-lg-0 mr-lg-2" id="sidebarToggle" href="#"><i data-feather="menu"></i></button>
             {{-- <form class="form-inline mr-auto d-none d-lg-block">
                 <input class="form-control form-control-solid mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
