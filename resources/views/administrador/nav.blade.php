@@ -4,6 +4,24 @@
             <div class="nav accordion" id="accordionSidenav">
 
                 <div class="sidenav-menu-heading">Administración</div>
+
+                <a class="nav-link collapsed" href="javascript:void(0);" data-toggle="collapse" data-target="#collapseUsuarios" aria-expanded="false" aria-controls="collapseUsuarios">
+                    <div class="nav-link-icon">
+                        <i data-feather="activity"></i>
+                    </div>
+                    Usuarios
+                    <div class="sidenav-collapse-arrow">
+                        <i class="fas fa-angle-down"></i>
+                    </div>
+                </a>
+                <div class="collapse" id="collapseUsuarios" data-parent="#accordionSidenav">
+                    <nav class="sidenav-menu-nested nav accordion" id="accordionSidenavPages">
+                        <a class="nav-link" href="{{ route('salon.index') }}">Registrar usuario</a>
+                        <!-- <a class="nav-link" href="dashboard-2.html">Multipurpose<span class="badge badge-primary ml-2">New!</span></a>
+                        <a class="nav-link" href="dashboard-3.html">Affiliate<span class="badge badge-primary ml-2">New!</span></a> -->
+                    </nav>
+                </div>
+
                 <a class="nav-link collapsed" href="javascript:void(0);" data-toggle="collapse" data-target="#collapseCursos" aria-expanded="false" aria-controls="collapseCursos">
                     <div class="nav-link-icon">
                         <i data-feather="activity"></i>
