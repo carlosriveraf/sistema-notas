@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
+use App\PersonaRol;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -64,7 +65,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        User::create([
             'DNI' => $data['DNI'],
             'password' => Hash::make($data['password']),
             'apellidoPaterno' => $data['apellidoPaterno'],
@@ -75,7 +76,14 @@ class RegisterController extends Controller
             'telefono' => $data['telefono'],
             'celular' => $data['celular'],
             'email' => $data['email'],
-            'direccion' => $data['direccion']
+            'direccion' => $data['direccion']       
         ]);
+
+        $u_r = new PersonaRol();
+        $u_r->ID_DNI = $data['DNI'];
+        $u_r->ID_ROL = $data['nombre_rol'];
+        $u_r->save();
+        
+        return view('administrador.home');
     }
 }

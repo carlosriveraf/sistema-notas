@@ -11,9 +11,9 @@
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
                         
-                        <input type="text" name="DNI" value="74415678">
-                        <input type="text" name="password" value="74415678">
-                        <input type="text" name="password_confirmation" value="74415678">
+                        <input type="text" name="DNI" value="12345678">
+                        <input type="text" name="password" value="12345678">
+                        <input type="text" name="password_confirmation" value="12345678">
                         <input type="text" name="apellidoPaterno" value="Rivera">
                         <input type="text" name="apellidoMaterno" value="Franco">
                         <input type="text" name="nombres" value="Carlos Eduardo">
@@ -23,6 +23,11 @@
                         <input type="text" name="email" value="carlos_2017_1@hotmail.com">
                         <input type="text" name="telefono" value="4565099">
                         <input type="text" name="celular" value="982907877">
+                        <select name="nombre_rol" id="nombre_rol">
+                            <option value="RBAC-AD" selected>Administrador</option>
+                            <option value="RBAC-ST">Estudiante</option>
+                            <option value="RBAC-TE">Profesor</option>
+                        </select>
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
