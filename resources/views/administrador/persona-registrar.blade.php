@@ -9,7 +9,7 @@
 
     <!-- datatable -->
     <!-- <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous"> -->
-    <link rel="stylesheet" href="{{ asset('css/dataTables.bootstrap4.min.css') }}">
+    <!-- <link rel="stylesheet" href="{{ asset('css/dataTables.bootstrap4.min.css') }}"> -->
 
     <!-- fontawesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
@@ -22,56 +22,19 @@
                 <div class="page-header-content">
                     <h1 class="page-header-title">
                         <div class="page-header-icon"><i data-feather="activity"></i></div>
-                        <span>Salones</span>
+                        <span>Registro de usuarios</span>
                     </h1>
-                    <div class="page-header-subtitle">Panel de administración de los salones</div>
+                    <div class="page-header-subtitle">Formulario para el registro de usuarios</div>
                 </div>
             </div>
         </div>
         <div class="container-fluid mt-n10">
-            <div class="card card-header-actions mb-4">
+            <div class="card mb-4">
                 <div class="card-header">
                     Mis salones
                     <button class="btn btn-primary btn-sm" type="button" data-toggle="modal" data-target="#agregarSalon">
                         Añadir
                     </button>
-                </div>
-                <!-- Modal -->
-                <div class="modal fade" id="agregarSalon" data-backdrop='static' tabindex="-1" role="dialog" aria-labelledby="agregarSalonTitle" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="agregarSalonTitle">Añadir salón</h5>
-                                <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                            </div>
-                            <form class="form-signin" role="form" action="{{ route('salon.store') }}" method="POST" onsubmit="myButton.disabled = true; return true;">
-                                @csrf
-                                <div class="modal-body">
-                                    <div class="form-group">
-                                        <label for="grado" class="small mb-1">grado</label>
-                                        <input type="text" class="form-control py-2" name="grado" id="grado" placeholder="grado" required autofocus>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="seccion" class="small mb-1">seccion</label>
-                                        <input type="text" class="form-control py-2" name="seccion" id="seccion" placeholder="seccion" required> 
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="DNI_ADMIN" class="small mb-1">DNI_ADMIN</label>
-                                        <!-- <input type="text" class="form-control py-2" name="DNI_ADMIN" id="DNI_ADMIN" placeholder="DNI_ADMIN" required>  -->
-                                        <input type="text" class="form-control py-2" name="DNI_ADMIN" id="DNI_ADMIN" placeholder="DNI_ADMIN" value="{{Auth::user()->DNI}}" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="nivel" class="small mb-1">nivel</label>
-                                        <input type="text" class="form-control py-2" name="nivel" id="nivel" placeholder="nivel" required> 
-                                    </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <button class="btn btn-secondary btn-sm" type="button" data-dismiss="modal">Cerrar</button>
-                                    <button class="btn btn-primary btn-sm" type="submit">Guardar cambios</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
                 </div>
                 <div class="card-body">
                     <div class="datatable table-responsive">
@@ -97,30 +60,7 @@
                                 </tr>
                             </tfoot>
                             <tbody>
-                                @foreach ($salones as $salon)
-                                    <tr>
-                                        <td>{{$salon->grado}}</td>
-                                        <td>{{$salon->seccion}}</td>
-                                        <td>{{$salon->DNI_ADMIN}}</td>
-                                        <td>{{$salon->nivel}}</td>
-                                        <td>
-                                            <form action="">
-                                                <button class="btn btn-warning btn-sm">
-                                                    <i class="fas fa-edit"></i>                                        
-                                                </button>
-                                            </form>
-                                        </td>
-                                        <td>
-                                            <form action="{{ route('salon.destroy', ['grado' => $salon->grado, 'seccion' => $salon->seccion]) }}" method="POST">
-                                                @method('delete')
-                                                @csrf
-                                                <button class="btn btn-danger btn-sm">
-                                                    <i class="fas fa-trash-alt"></i>
-                                                </button>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                @endforeach
+                                
                                 <!-- <tr>
                                     <td>Tiger Nixon</td>
                                     <td>System Architect</td>
@@ -173,8 +113,8 @@
     <!-- script de tablas -->
     <!-- <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script> -->
-    <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
+    <!-- <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('js/dataTables.bootstrap4.min.js') }}"></script>
 
-    <script src="{{ asset('assets/demo/datatables-demo.js') }}"></script>
+    <script src="{{ asset('assets/demo/datatables-demo.js') }}"></script> -->
 @endsection

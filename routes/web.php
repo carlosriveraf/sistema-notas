@@ -30,3 +30,6 @@ Route::get('/salon/{grado}/{seccion}', 'SalonController@show')->name('salon.show
 Route::get('/salon/{grado}/{seccion}/edit', 'SalonController@edit')->name('salon.edit');
 Route::put('/salon/{grado}/{seccion}', 'SalonController@update')->name('salon.update');
 Route::delete('/salon/{grado}/{seccion}', 'SalonController@destroy')->name('salon.destroy');
+
+Route::resource('/usuario-registrar', 'PersonaController');
+//Route::get('/usuario-registrar', 'Auth\RegisterController@registrarUsuario')->name('usuario.registrar');
