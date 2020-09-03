@@ -30,72 +30,83 @@
         </div>
         <div class="container-fluid mt-n10">
             <div class="card mb-4">
-                <div class="card-header">
+                <!-- <div class="card-header">
                     Mis salones
                     <button class="btn btn-primary btn-sm" type="button" data-toggle="modal" data-target="#agregarSalon">
                         Añadir
                     </button>
-                </div>
+                </div> -->
                 <div class="card-body">
-                    <div class="datatable table-responsive">
-                        <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
-                            <thead>
-                                <tr>
-                                    <th>Grado</th>
-                                    <th>Seccion</th>
-                                    <th>DNI_ADMIN</th>
-                                    <th>Nivel</th>
-                                    <th>Editar</th>
-                                    <th>Eliminar</th>
-                                </tr>
-                            </thead>
-                            <tfoot>
-                                <tr>
-                                    <th>Grado</th>
-                                    <th>Seccion</th>
-                                    <th>DNI_ADMIN</th>
-                                    <th>Nivel</th>
-                                    <th>Editar</th>
-                                    <th>Eliminar</th>
-                                </tr>
-                            </tfoot>
-                            <tbody>
-                                
-                                <!-- <tr>
-                                    <td>Tiger Nixon</td>
-                                    <td>System Architect</td>
-                                    <td>Edinburgh</td>
-                                    <td>61</td>
-                                    <td>
-                                        <form action="">
-                                            <button class="btn btn-datatable btn-icon btn-transparent-dark mr-2">
-                                                <i class="fas fa-edit"></i>                                        
-                                            </button>
-                                            </form>
-                                        <form action="">
-                                            <button class="btn btn-datatable btn-icon btn-transparent-dark">
-                                                <i class="fas fa-trash-alt"></i>
-                                            </button>
-                                        </form>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Garrett Winters</td>
-                                    <td>Accountant</td>
-                                    <td>Tokyo</td>
-                                    <td>63</td>
-                                    <td>
-                                        <button class="btn btn-warning btn-sm">
-                                            <i class="fas fa-edit"></i>
-                                        </button>
-                                        <button class="btn btn-danger btn-sm">
-                                            <i class="fas fa-trash-alt"></i>
-                                        </button>
-                                    </td>
-                                </tr> -->
-                            </tbody>
-                        </table>
+                <form method="POST" action="{{ route('register') }}">
+                    @csrf
+                        
+                    <!-- <div class="form-group col-md-6">
+                        <label for="DNI">DNI</label>
+                        <input class="form-control" type="text" name="DNI" id="DNI" required>
+                    </div> -->
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label for="apellidoPaterno">Apellido Paterno</label>
+                            <input class="form-control" type="text" name="apellidoPaterno" id="apellidoPaterno" required>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="apellidoMaterno">Apellido Materno</label>
+                            <input class="form-control" type="text" name="apellidoMaterno" id="apellidoMaterno" required>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="nombres">Nombres</label>
+                            <input class="form-control" type="text" name="nombres" id="nombres" required>
+                        </div>
                     </div>
+                    <div class="row">
+                        <div class="form-group col-md-3">
+                            <label for="DNI">DNI</label>
+                            <input class="form-control" type="text" name="DNI" id="DNI" required>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="fechaNacimiento">Fecha de nacimiento</label>
+                            <input class="form-control" type="date" name="fechaNacimiento" id="fechaNacimiento" required>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label>Sexo</label>
+                            <div class="custom-control custom-radio">
+                                <input class="custom-control-input" id="customRadio1" type="radio" name="sexo" value="H">
+                                <label class="custom-control-label" for="customRadio1">Hombre</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input class="custom-control-input" id="customRadio2" type="radio" name="sexo" value="M">
+                                <label class="custom-control-label" for="customRadio2">Mujer</label>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="nombre_rol">Rol de la persona</label>
+                            <select name="nombre_rol" id="nombre_rol" class="form-control">
+                                <option value="RBAC-AD" selected>Administrador</option>
+                                <option value="RBAC-ST">Estudiante</option>
+                                <option value="RBAC-TE">Profesor</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-3">
+                            <label for="telefono">Teléfono de casa</label>
+                            <input class="form-control" type="text" name="telefono" id="telefono" required>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="celular">Celular</label>
+                            <input class="form-control" type="text" name="celular" id="celular" required>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="email">Correo electrónico</label>
+                            <input class="form-control" type="email" name="email" id="email" required>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="direccion">Domicilio</label>
+                            <input class="form-control" type="text" name="direccion" id="direccion" required>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" type="submit">Grabar datos</button>
+                </form>
                 </div>
             </div>
         </div>
