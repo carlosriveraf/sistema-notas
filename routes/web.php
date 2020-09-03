@@ -20,3 +20,16 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+//Route::resource('/salon', 'SalonController');
+
+Route::get('/salon', 'SalonController@index')->name('salon.index');
+Route::get('/salon/create', 'SalonController@create')->name('salon.create');
+Route::post('/salon', 'SalonController@store')->name('salon.store');
+Route::get('/salon/{grado}/{seccion}', 'SalonController@show')->name('salon.show');
+Route::get('/salon/{grado}/{seccion}/edit', 'SalonController@edit')->name('salon.edit');
+Route::put('/salon/{grado}/{seccion}', 'SalonController@update')->name('salon.update');
+Route::delete('/salon/{grado}/{seccion}', 'SalonController@destroy')->name('salon.destroy');
+
+Route::resource('/usuario-registrar', 'PersonaController');
+//Route::get('/usuario-registrar', 'Auth\RegisterController@registrarUsuario')->name('usuario.registrar');
