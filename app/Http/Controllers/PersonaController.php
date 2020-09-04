@@ -34,7 +34,16 @@ class PersonaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        var_dump($request->DNI);echo "<br>";
+        var_dump($request->apellidoPaterno);echo "<br>";
+        var_dump($request->apellidoMaterno);echo "<br>";
+        var_dump($request->nombres);echo "<br>";
+        var_dump($request->fechaNacimiento);echo "<br>";
+        var_dump($request->sexo);echo "<br>";
+        var_dump($request->telefono);echo "<br>";
+        var_dump($request->celular);echo "<br>";
+        var_dump($request->email);echo "<br>";
+        var_dump($request->direccion);echo "<br>";
     }
 
     /**

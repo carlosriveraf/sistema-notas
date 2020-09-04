@@ -37,9 +37,8 @@
                     </button>
                 </div> -->
                 <div class="card-body">
-                <form method="POST" action="{{ route('register') }}">
-                    @csrf
-                        
+                <form method="POST" action="{{ route('usuario-registrar.store') }}">
+                    @csrf                        
                     <!-- <div class="form-group col-md-6">
                         <label for="DNI">DNI</label>
                         <input class="form-control" type="text" name="DNI" id="DNI" required>
