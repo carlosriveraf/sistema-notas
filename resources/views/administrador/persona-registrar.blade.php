@@ -37,7 +37,7 @@
                     </button>
                 </div> -->
                 <div class="card-body">
-                <form method="POST" action="{{ route('register') }}">
+                <form method="POST" action="{{ route('usuario-registrar.store') }}">
                     @csrf
                         
                     <!-- <div class="form-group col-md-6">
