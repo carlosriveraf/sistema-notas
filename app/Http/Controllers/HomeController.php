@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\PersonaRol;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -23,9 +25,18 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $rol = PersonaRol::where('DNI', Auth::user()->DNI);
+
+        foreach($rol as $persona){
+            var_dump($persona->ID_ROL);
+        }
+
+
+        
+
         //if (Administrador::where('DNI', Auth::user()->DNI)->exists()) {
             //return view('administrador.home');
-            return view('estudiante.home');
+            //return view('estudiante.home');
         //} else {
             //echo "no hay vista implementada";
         //}

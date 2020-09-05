@@ -29,7 +29,7 @@
             </div>
         </div>
         <div class="container-fluid mt-n10">
-            <div class="card card-header-actions mb-4">
+            <div class="card mb-4">
                 <div class="card-header">
                     Mis cursos
                 </div>
