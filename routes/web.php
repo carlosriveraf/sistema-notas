@@ -33,3 +33,8 @@ Route::delete('/salon/{grado}/{seccion}', 'SalonController@destroy')->name('salo
 
 Route::resource('/usuario-registrar', 'PersonaController');
 //Route::get('/usuario-registrar', 'Auth\RegisterController@registrarUsuario')->name('usuario.registrar');
+
+
+
+//Route::get('/curso', 'AlumnoCursoController@index')->name('curso.index');
+Route::get('/curso', 'AlumnoCursoController@index')->name('notas.index');

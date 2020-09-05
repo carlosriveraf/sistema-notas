@@ -13,11 +13,7 @@
             <a href="/home" class="navbar-brand d-none d-sm-block">Nombre Institución</a>
             <button class="btn btn-icon btn-transparent-dark order-1 order-lg-0 mr-lg-2" id="sidebarToggle" href="#"><i data-feather="menu"></i></button>
             
-
-            <ul class="navbar-nav align-items-center ml-auto">
-                
-                
-                
+            <ul class="navbar-nav align-items-center ml-auto">       
                 <li class="nav-item dropdown no-caret mr-3 dropdown-notifications">
                     <div class="dropdown-user-details-email">
                         {{ Auth::user()->apellidoPaterno." ".Auth::user()->apellidoMaterno.", ".Auth::user()->nombres }}
@@ -62,6 +58,7 @@
              
         <div id="layoutSidenav">
             @include('administrador.nav')
+            @include('estudiante.nav')
             <div id="layoutSidenav_content">
                 @yield('content')
                 @include('footer')
