@@ -44,6 +44,7 @@ class PersonaController extends Controller
         var_dump($request->celular);echo "<br>";
         var_dump($request->email);echo "<br>";
         var_dump($request->direccion);echo "<br>";
+        echo "<br>";
     }
 
     /**
