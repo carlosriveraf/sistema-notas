@@ -25,12 +25,21 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $rol = PersonaRol::where('DNI', Auth::user()->DNI);
-
-        foreach($rol as $persona){
+        $rol = PersonaRol::where('ID_DNI', Auth::user()->DNI)->first();
+        $rol = $rol->ID_ROL;
+        //$rol = PersonaRol::where('ID_DNI', Auth::user()->DNI)->limit(1)->get();
+        //$rol = PersonaRol::where('ID_DNI', Auth::user()->DNI)->get();
+        //var_dump($rol);
+        /* foreach($rol as $persona){
             var_dump($persona->ID_ROL);
+        } */
+        if ($rol == "RBAC-AD") {
+            return view('administrador.home');
+        } else if ($rol == "RBAC-ST") {
+            return view('estudiante.home');
+        } else if ($rol == "RBAC-TE") {
+            return view('profesor.home');
         }
-
 
         
 

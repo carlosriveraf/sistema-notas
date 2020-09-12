@@ -18,7 +18,7 @@ class PersonaRol extends Model
      *
      * @var string
      */
-    protected $primaryKey = 'DNI';
+    protected $primaryKey = 'ID_DNI';
 
     /**
      * Indicates if the IDs are auto-incrementing.
