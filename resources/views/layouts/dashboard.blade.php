@@ -55,7 +55,10 @@
                 </li>
             </ul>
         </nav>
+
+        @yield('content')
              
+        {{--
         <div id="layoutSidenav">
             @include('administrador.nav')
             @include('estudiante.nav')
@@ -64,6 +67,7 @@
                 @include('footer')
             </div>
         </div>
+        --}}
         
         @yield('scripts')
 
