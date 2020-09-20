@@ -35,6 +35,6 @@ Route::resource('/usuario-registrar', 'PersonaController');
 //Route::get('/usuario-registrar', 'Auth\RegisterController@registrarUsuario')->name('usuario.registrar');
 
 
-
-//Route::get('/curso', 'AlumnoCursoController@index')->name('curso.index');
-Route::get('/curso', 'AlumnoCursoController@index')->name('notas.index');
+Route::get('/curso', 'AlumnoCursoController@cursos')->name('estudiante.cursos');
+Route::get('/nota', 'AlumnoCursoController@notas')->name('estudiante.notas');
+Route::get('/asistencia', 'AsistenciaController@index')->name('estudiante.asistencias');

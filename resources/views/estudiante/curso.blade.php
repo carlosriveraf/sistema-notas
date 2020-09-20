@@ -16,6 +16,10 @@
 @endsection
 
 @section('content')
+@section('content')
+<div id="layoutSidenav">
+    @include('estudiante.nav')
+    <div id="layoutSidenav_content">
     <main>
         <div class="page-header pb-10 page-header-dark bg-gradient-primary-to-secondary">
             <div class="container-fluid">
@@ -39,24 +43,30 @@
                         <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
-                                    <th>DNI</th>
-                                    <th>Curso</th>
-                                    <th>Nota</th>
+                                    <th>ID</th>
+                                    <th>Nombre</th>
+                                    <th>Grado</th>
+                                    <th>Sección</th>
+                                    <th>Docente</th>
                                 </tr>
                             </thead>
                             <tfoot>
                                 <tr>
-                                    <th>DNI</th>
-                                    <th>Curso</th>
-                                    <th>Nota</th>
+                                    <th>ID</th>
+                                    <th>Nombre</th>
+                                    <th>Grado</th>
+                                    <th>Sección</th>
+                                    <th>Docente</th>
                                 </tr>
                             </tfoot>
                             <tbody>
                                 @foreach ($cursos as $curso)
                                     <tr>
-                                        <td>{{$curso->DNI_ALUMNO}}</td>
-                                        <td>{{$curso->ID_CURSO}}</td>
-                                        <td>{{$curso->nota}}</td>  
+                                        <td>{{$curso->ID}}</td>
+                                        <td>{{$curso->nombre}}</td>
+                                        <td>{{$curso->salon_grado}}</td>
+                                        <td>{{$curso->salon_seccion}}</td>
+                                        <td>{{$curso->docente}}</td>
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -66,6 +76,9 @@
             </div>
         </div>
     </main>
+    @include('footer')
+    </div>
+</div>
 @endsection
 
 @section('scripts')

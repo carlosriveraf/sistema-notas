@@ -5,7 +5,7 @@
 
                 <div class="sidenav-menu-heading">Administración</div>
 
-                <a class="nav-link collapsed" href="javascript:void(0);" data-toggle="collapse" data-target="#collapseUsuarios" aria-expanded="false" aria-controls="collapseUsuarios">
+                <a class="nav-link collapsed" href="javascript:void(0);" data-toggle="collapse" data-target="#collapseCursos" aria-expanded="false" aria-controls="collapseCursos">
                     <div class="nav-link-icon">
                         <i data-feather="activity"></i>
                     </div>
@@ -14,12 +14,29 @@
                         <i class="fas fa-angle-down"></i>
                     </div>
                 </a>
-                <div class="collapse" id="collapseUsuarios" data-parent="#accordionSidenav">
+                <div class="collapse" id="collapseCursos" data-parent="#accordionSidenav">
                     <nav class="sidenav-menu-nested nav accordion" id="accordionSidenavPages">
-                        <a class="nav-link" href="{{ route('notas.index') }}">Cursos matriculados</a>
-                        <a class="nav-link" href="{{ route('notas.index') }}">Reporte de notas</a>
+                        <a class="nav-link" href="{{ route('estudiante.cursos') }}">Cursos matriculados</a>
+                        <a class="nav-link" href="{{ route('estudiante.notas') }}">Reporte de notas</a>
                     </nav>
                 </div>
+
+
+                <a class="nav-link collapsed" href="javascript:void(0);" data-toggle="collapse" data-target="#collapseAsistencias" aria-expanded="false" aria-controls="collapseAsistencias">
+                    <div class="nav-link-icon">
+                        <i data-feather="activity"></i>
+                    </div>
+                    Asistencia
+                    <div class="sidenav-collapse-arrow">
+                        <i class="fas fa-angle-down"></i>
+                    </div>
+                </a>
+                <div class="collapse" id="collapseAsistencias" data-parent="#accordionSidenav">
+                    <nav class="sidenav-menu-nested nav accordion" id="accordionSidenavPages">
+                        <a class="nav-link" href="{{ route('estudiante.asistencias') }}">Reporte de asistencia</a>
+                    </nav>
+                </div>
+
 
                 <div class="sidenav-menu-heading">Interface</div>
                 <a class="nav-link collapsed" href="javascript:void(0);" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts"
