@@ -12,6 +12,16 @@
     <link rel="stylesheet" href="{{ asset('css/dataTables.bootstrap4.min.css') }}">
     <!-- fontawesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+    <style>
+        .icono{
+            color: black;
+            text-align: center;
+        }
+        .encabezado{
+            color: black;
+            font-weight: bold;
+        }
+    </style>
 @endsection
 
 @section('content')
@@ -26,22 +36,108 @@
                         <div class="page-header-icon"><i data-feather="activity"></i></div>
                         <span>Información personal</span>
                     </h1>
-                    <div class="page-header-subtitle">Panel de visualización de datos</div>
                 </div>
             </div>
         </div>
         <div class="container-fluid mt-n10">
             <div class="card col-md-6 mx-auto">
-                <div class="card-header">
-                    Mis datos
-                </div>
                 <!-- Modal -->
-                <div class="card-body">{{$usuario->DNI}}</div>
-                <div class="card-body">{{$usuario->nombres}}</div>
-                <div class="card-body">{{$usuario->apellidoPaterno}}</div>
-                <div class="card-body">{{$usuario->apellidoMaterno}}</div>
-                <div class="card-body">{{$usuario->fechaNacimiiento}}</div>
-                <div class="card-body">{{$usuario->sexo}}</div>
+                <table class="table table-bordered table-hover mt-3" width="100%" cellspacing="0">
+                        <tbody>
+                            <tr>
+                                <td class="icono">
+                                    <i class="fas fa-id-card"></i>
+                                </td>
+                                <td>
+                                    <span class="encabezado">DNI</span> 
+                                </td>                               
+                                <td>{{$usuario->DNI}}</td>
+                            </tr>
+                            <tr>
+                                <td class="icono">
+                                    <i class="fas fa-user"></i>
+                                </td>
+                                <td>
+                                    <span class="encabezado">Nombres</span>
+                                </td>
+                                <td>{{$usuario->nombres}}</td>
+                            </tr> 
+                            <tr>
+                                <td class="icono">
+                                    <i class="far fa-user"></i>
+                                </td>
+                                <td>
+                                    <span class="encabezado">Apellidos</span>
+                                </td>
+                                <td>{{$usuario->apellidoPaterno}} {{$usuario->apellidoMaterno}}</td>
+                            </tr>
+                            <tr>
+                                <td class="icono">
+                                    <i class="fas fa-calendar-alt"></i>
+                                </td>
+                                <td>
+                                    <span class="encabezado">Fecha Nacimiento</span>
+                                </td>
+                                <td>{{$usuario->fechaNacimiento}}</td>
+                            </tr>
+                            <tr>                                
+                                @if($usuario->sexo == 'H')
+                                    <td class="icono">
+                                        <i class="fas fa-male"></i>
+                                    </td>
+                                    <td>
+                                        <span class="encabezado">Género</span>
+                                    </td>
+                                    <td>Hombre</td>                                    
+                                @else
+                                    <td class="icono">
+                                        <i class="fas fa-female"></i>
+                                    </td>
+                                    <td>
+                                        <span class="encabezado">Género</span>
+                                    </td>
+                                    <td>Mujer</td> 
+                                @endif
+                            </tr>
+                            <tr>
+                                <td class="icono">
+                                    <i class="fas fa-envelope"></i>
+                                </td>
+                                <td>
+                                    <span class="encabezado">Correo Electrónico</span>
+                                </td>
+                                <td>{{$usuario->email}}</td>
+                            </tr>
+                            <tr>
+                                <td class="icono">
+                                    <i class="fas fa-phone"></i>
+                                </td>
+                                <td>
+                                    <span class="encabezado">Número de teléfono</span>
+                                </td>
+                                <td>{{$usuario->telefono}}</td>
+                            </tr>
+                            <tr>
+                                <td class="icono">
+                                    <i class="fas fa-mobile-alt"></i> 
+                                </td>
+                                <td>
+                                    <span class="encabezado">Número de celular</span>
+                                </td>
+                                <td>{{$usuario->celular}}</td>
+                            </tr>
+                            <tr>
+                            <td class="icono">
+                                    <i class="fas fa-map-marked-alt"></i>
+                                </td>
+                                <td>
+                                    <span class="encabezado">Domicilio</span>
+                                </td>
+                                <td>{{$usuario->direccion}}</td>
+                            </tr>
+
+                        </tbody>
+                </table>
             </div>
         </div>
     </main>

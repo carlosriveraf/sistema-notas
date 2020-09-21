@@ -39,9 +39,6 @@ Route::get('/curso', 'AlumnoCursoController@cursos')->name('estudiante.cursos');
 Route::get('/nota', 'AlumnoCursoController@notas')->name('estudiante.notas');
 Route::get('/asistencia', 'AsistenciaController@index')->name('estudiante.asistencias');
 
-<<<<<<< HEAD
 Route::get('/info', 'PersonaController@index')->name('user.info');
-=======
 
 Route::get('/cursosDictados', 'ProfesorCursoController@cursos')->name('profesor.cursos');
->>>>>>> d74e4e14f50e161cb7606da21e325b63e75a70cc

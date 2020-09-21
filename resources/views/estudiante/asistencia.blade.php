@@ -12,6 +12,18 @@
     <link rel="stylesheet" href="{{ asset('css/dataTables.bootstrap4.min.css') }}">
     <!-- fontawesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+    <style>
+        .asistio{
+            background-color: #CCFCC7;
+        }
+        .falta{
+            background-color: #FFD4CF; 
+        }
+        .encabezado{
+            color: black;
+        }
+    </style>
+
 @endsection
 
 @section('content')
@@ -32,14 +44,11 @@
         </div>
         <div class="container-fluid mt-n10">
             <div class="card mb-4">
-                <div class="card-header">
-                    Mis notas
-                </div>
                 <!-- Modal -->
                 <!-- Modal -->
                 <div class="card-body">
                     <div class="datatable table-responsive">
-                        <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
                                     <th>Fecha</th>
@@ -47,24 +56,38 @@
                                     <th>Observación</th>
                                 </tr>
                             </thead>
-                            <tfoot>
-                                <tr>
-                                    <th>Fecha</th>
-                                    <th>Estado</th>
-                                    <th>Observación</th>
-                                </tr>
-                            </tfoot>
                             <tbody>
                                 @foreach ($asistencias as $asistencia)
-                                    <tr>
-                                        <td>{{$asistencia->fecha}}</td>
-                                        @if($asistencia->estado == 1)
-                                            <td>Asistió</td>
-                                        @else
-                                            <td>No asistió</td>
-                                        @endif
-                                        <td>{{$asistencia->observacion}}</td> 
+                                    @if($asistencia->estado == 1)
+                                    <tr class= "asistio">
+                                        <td>
+                                            <span class="encabezado">{{$asistencia->fecha}}</span> 
+                                        </td>                                       
+                                        <td>
+                                            <span class="encabezado">Asistió</span> 
+                                        </td>
+                                        <td>
+                                            @if($asistencia->observacion == '')                                            
+                                                <span class="encabezado">No hubo ninguna observación.</span>
+                                            @else
+                                                <span class="encabezado">{{$asistencia->observacion}}</span>
+                                            @endif
+                                        </td>
                                     </tr>
+                                    @else
+                                    <tr class= "falta">
+                                    <td>
+                                            <span class="encabezado">{{$asistencia->fecha}}</span> 
+                                        </td>                                       
+                                        <td>
+                                            <span class="encabezado">No Asistió</span> 
+                                        </td>
+                                        <td>
+                                            <span class="encabezado">{{$asistencia->observacion}}</span>  
+                                        </td>
+                                    </tr>
+                                    @endif
+                                    
                                 @endforeach
                             </tbody>
                         </table>
