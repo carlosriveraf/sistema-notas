@@ -55,7 +55,7 @@
                                         <td>{{$curso->ID}}</td>
                                         <td>{{$curso->nombre}}</td>
                                         <td>{{$curso->salon_grado}}</td>
-                                        <td>{{$curso->salon_seccion}}</td>
+                                        <td>{{$curso->salon_nivel}}</td>
                                         <td>{{$curso->docente}}</td>
                                     </tr>
                                 @endforeach

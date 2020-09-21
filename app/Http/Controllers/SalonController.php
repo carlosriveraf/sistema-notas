@@ -86,11 +86,11 @@ class SalonController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($grado, $seccion)
+    public function destroy($grado, $nivel)
     {
         $salon = Salon::where([
             ['grado', '=', $grado],
-            ['seccion', '=', $seccion]
+            ['nivel', '=', $nivel]
         ])->delete();
         return redirect()->route('salon.index');
     }

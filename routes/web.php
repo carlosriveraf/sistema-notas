@@ -29,7 +29,7 @@ Route::post('/salon', 'SalonController@store')->name('salon.store');
 Route::get('/salon/{grado}/{seccion}', 'SalonController@show')->name('salon.show');
 Route::get('/salon/{grado}/{seccion}/edit', 'SalonController@edit')->name('salon.edit');
 Route::put('/salon/{grado}/{seccion}', 'SalonController@update')->name('salon.update');
-Route::delete('/salon/{grado}/{seccion}', 'SalonController@destroy')->name('salon.destroy');
+Route::delete('/salon/{grado}/{nivel}', 'SalonController@destroy')->name('salon.destroy');
 
 Route::resource('/usuario-registrar', 'PersonaController');
 //Route::get('/usuario-registrar', 'Auth\RegisterController@registrarUsuario')->name('usuario.registrar');
@@ -46,3 +46,5 @@ Route::get('/info', 'PersonaController@index')->name('user.info');
 Route::get('/cursosDictados', 'ProfesorCursoController@cursos')->name('profesor.cursos');
 Route::get('/ingresarNotas', 'ProfesorCursoController@createIngresar')->name('profesor.ingresar');
 Route::get('/ingresarNotasAlumno', 'ProfesorCursoController@createIngresar1')->name('profesor.ingresar1');
+
+Route::get('/crearCurso', 'CursoController@crear')->name('admin.crearCurso');

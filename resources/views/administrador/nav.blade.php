@@ -39,6 +39,7 @@
                         <a class="nav-link" href="{{ route('salon.index') }}">Crear salón</a>
                         <!-- <a class="nav-link" href="dashboard-2.html">Multipurpose<span class="badge badge-primary ml-2">New!</span></a>
                         <a class="nav-link" href="dashboard-3.html">Affiliate<span class="badge badge-primary ml-2">New!</span></a> -->
+                        <a class="nav-link" href="{{ route('admin.crearCurso') }}">Crear curso</a>
                     </nav>
                 </div>
                 <!-- <div class="sidenav-menu-heading">Profesores</div>
