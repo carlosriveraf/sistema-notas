@@ -36,6 +36,10 @@
                     Mis notas
                 </div>
                 <!-- Modal -->
+<<<<<<< HEAD
+=======
+                <!-- Modal -->
+>>>>>>> 3e683b91b4f0de90d412dae0c71a8acccf0c0252
                 <div class="card-body">
                     <div class="datatable table-responsive">
                         <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
