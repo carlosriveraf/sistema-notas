@@ -53,8 +53,8 @@
                                     <div class="form-group">
                                         <label for="nivel" class="small mb-1">Nivel</label>                                       
                                         <select name="nivel" id="nivel" class="form-control">
-                                            <option value="P" selected>Primaria</option>
-                                            <option value="S">Secundaria</option>
+                                            <option value="Primaria" selected>Primaria</option>
+                                            <option value="Secundaria">Secundaria</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
@@ -84,10 +84,10 @@
                         <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
-                                    <th>Nivel</th>
                                     <th>Grado</th>
                                     <th>Seccion</th>
-                                    <th>DNI_ADMIN</th>                                    
+                                    <th>DNI_ADMIN</th>
+                                    <th>Nivel</th>
                                     <!-- <th>Editar</th> -->
                                     <th>Eliminar</th>
                                 </tr>
@@ -95,16 +95,10 @@
                             <tbody>
                                 @foreach ($salones as $salon)
                                     <tr>
-                                        @if($salon->nivel == 'P')
-                                            <td>Primaria</td>
-                                        @else
-                                            <td>Secundaria</td>
-                                        @endif
                                         <td>{{$salon->grado}}</td>
                                         <td>{{$salon->seccion}}</td>
                                         <td>{{$salon->DNI_ADMIN}}</td>
-                                       
-                                        
+                                        <td>{{$salon->nivel}}</td>
                                         <!-- <td>
                                             <form action="">
                                                 <button class="btn btn-warning btn-sm">
@@ -113,7 +107,7 @@
                                             </form>
                                         </td> -->
                                         <td>
-                                            <form action="{{ route('salon.destroy', ['grado' => $salon->grado, 'nivel' => $salon->nivel]) }}" method="POST">
+                                            <form action="{{ route('salon.destroy', ['grado' => $salon->grado, 'seccion' => $salon->seccion]) }}" method="POST">
                                                 @method('delete')
                                                 @csrf
                                                 <button class="btn btn-danger btn-sm">
