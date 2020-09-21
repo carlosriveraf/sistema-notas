@@ -39,7 +39,7 @@ class HomeController extends Controller
         } else if ($rol == "RBAC-ST") {            
             return view('estudiante.info', compact('usuario'));
         } else if ($rol == "RBAC-TE") {
-            return view('profesor.home');
+            return view('profesor.info', compact('usuario'));
         }
         
         //if (Administrador::where('DNI', Auth::user()->DNI)->exists()) {
