@@ -34,6 +34,7 @@ Route::delete('/salon/{grado}/{nivel}', 'SalonController@destroy')->name('salon.
 Route::resource('/usuario-registrar', 'PersonaController');
 //Route::get('/usuario-registrar', 'Auth\RegisterController@registrarUsuario')->name('usuario.registrar');
 
+Route::post('/matricularAlumno','PersonaController@matricula')->name('matricula.alumno');
 
 Route::get('/curso', 'AlumnoCursoController@cursos')->name('estudiante.cursos');
 Route::get('/nota', 'AlumnoCursoController@notas')->name('estudiante.notas');
@@ -41,6 +42,8 @@ Route::get('/asistencia', 'AsistenciaController@index')->name('estudiante.asiste
 
 
 Route::get('/info', 'PersonaController@index')->name('user.info');
+
+Route::post('/asignarProfesor','PersonaController@asignarCurso')->name('asignar.curso');
 
 
 Route::get('/cursosDictados', 'ProfesorCursoController@cursos')->name('profesor.cursos');
@@ -50,4 +53,4 @@ Route::post('/ingresarNotas', 'ProfesorCursoController@ingresarNotas')->name('pr
 Route::get('/reporteCursos', 'ProfesorCursoController@reporteAlumnos')->name('profesor.alumnos');
 Route::get('/reporteCursos/{id}', 'ProfesorCursoController@reporteCompleto')->name('profesor.reporte');
 
-Route::get('/crearCurso', 'CursoController@crear')->name('admin.crearCurso');
+Route::resource('/curso-registrar','CursoController');

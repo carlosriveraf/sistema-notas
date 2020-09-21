@@ -9,7 +9,7 @@
 
     <!-- datatable -->
     <!-- <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous"> -->
-    <link rel="stylesheet" href="{{ asset('css/dataTables.bootstrap4.min.css') }}">
+    <!-- <link rel="stylesheet" href="{{ asset('css/dataTables.bootstrap4.min.css') }}"> -->
 
     <!-- fontawesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
@@ -25,136 +25,69 @@
                 <div class="page-header-content">
                     <h1 class="page-header-title">
                         <div class="page-header-icon"><i data-feather="activity"></i></div>
-                        <span>Salones</span>
+                        <span>Registro de cursos</span>
                     </h1>
-                    <div class="page-header-subtitle">Panel de administración de los salones</div>
+                    <div class="page-header-subtitle">Formulario para el registro de curso</div>
                 </div>
             </div>
         </div>
         <div class="container-fluid mt-n10">
-            <div class="card card-header-actions mb-4">
-                <div class="card-header">
+            <div class="card mb-4">
+                <!-- <div class="card-header">
                     Mis salones
                     <button class="btn btn-primary btn-sm" type="button" data-toggle="modal" data-target="#agregarSalon">
                         Añadir
                     </button>
-                </div>
-                <!-- Modal -->
-                <div class="modal fade" id="agregarSalon" data-backdrop='static' tabindex="-1" role="dialog" aria-labelledby="agregarSalonTitle" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="agregarSalonTitle">Añadir salón</h5>
-                                <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                            </div>
-                            <form class="form-signin" role="form" action="{{ route('salon.store') }}" method="POST" onsubmit="myButton.disabled = true; return true;">
-                                @csrf
-                                <div class="modal-body">
-                                    <div class="form-group">
-                                        <label for="nivel" class="small mb-1">Nivel</label>                                       
-                                        <select name="nivel" id="nivel" class="form-control">
-                                            <option value="Primaria" selected>Primaria</option>
-                                            <option value="Secundaria">Secundaria</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="grado" class="small mb-1">Grado</label>
-                                        <input type="text" class="form-control py-2" name="grado" id="grado" placeholder="Grado" required autofocus>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="seccion" class="small mb-1">Sección</label>
-                                        <input type="text" class="form-control py-2" name="seccion" id="seccion" placeholder="Sección" required> 
-                                    </div>
-                                    <div class="form-group" style="display: none">
-                                        <label for="DNI_ADMIN" class="small mb-1">DNI_ADMIN</label>
-                                        <!-- <input type="text" class="form-control py-2" name="DNI_ADMIN" id="DNI_ADMIN" placeholder="DNI_ADMIN" required>  -->
-                                        <input type="text" class="form-control py-2" name="DNI_ADMIN" id="DNI_ADMIN" placeholder="DNI_ADMIN" value="{{Auth::user()->DNI}}" required>
-                                    </div>     
-                                </div>
-                                <div class="modal-footer">
-                                    <button class="btn btn-secondary btn-sm" type="button" data-dismiss="modal">Cerrar</button>
-                                    <button class="btn btn-primary btn-sm" type="submit">Guardar cambios</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
+                </div> -->
                 <div class="card-body">
-                    <div class="datatable table-responsive">
-                        <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
-                            <thead>
-                                <tr>
-                                    <th>Grado</th>
-                                    <th>Seccion</th>
-                                    <th>DNI_ADMIN</th>
-                                    <th>Nivel</th>
-                                    <!-- <th>Editar</th> -->
-                                    <th>Eliminar</th>
-                                </tr>
-                            </thead>                            
-                            <tbody>
-                                @foreach ($salones as $salon)
-                                    <tr>
-                                        <td>{{$salon->grado}}</td>
-                                        <td>{{$salon->seccion}}</td>
-                                        <td>{{$salon->DNI_ADMIN}}</td>
-                                        <td>{{$salon->nivel}}</td>
-                                        <!-- <td>
-                                            <form action="">
-                                                <button class="btn btn-warning btn-sm">
-                                                    <i class="fas fa-edit"></i>                                        
-                                                </button>
-                                            </form>
-                                        </td> -->
-                                        <td>
-                                            <form action="{{ route('salon.destroy', ['grado' => $salon->grado, 'seccion' => $salon->seccion]) }}" method="POST">
-                                                @method('delete')
-                                                @csrf
-                                                <button class="btn btn-danger btn-sm">
-                                                    <i class="fas fa-trash-alt"></i>
-                                                </button>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                @endforeach
-                                <!-- <tr>
-                                    <td>Tiger Nixon</td>
-                                    <td>System Architect</td>
-                                    <td>Edinburgh</td>
-                                    <td>61</td>
-                                    <td>
-                                        <form action="">
-                                            <button class="btn btn-datatable btn-icon btn-transparent-dark mr-2">
-                                                <i class="fas fa-edit"></i>                                        
-                                            </button>
-                                            </form>
-                                        <form action="">
-                                            <button class="btn btn-datatable btn-icon btn-transparent-dark">
-                                                <i class="fas fa-trash-alt"></i>
-                                            </button>
-                                        </form>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Garrett Winters</td>
-                                    <td>Accountant</td>
-                                    <td>Tokyo</td>
-                                    <td>63</td>
-                                    <td>
-                                        <button class="btn btn-warning btn-sm">
-                                            <i class="fas fa-edit"></i>
-                                        </button>
-                                        <button class="btn btn-danger btn-sm">
-                                            <i class="fas fa-trash-alt"></i>
-                                        </button>
-                                    </td>
-                                </tr> -->
-                            </tbody>
-                        </table>
+                <form method="POST" action="{{ route('curso-registrar.store') }}">
+                    @csrf
+                        
+                    <!-- <div class="form-group col-md-6">
+                        <label for="DNI">DNI</label>
+                        <input class="form-control" type="text" name="DNI" id="DNI" required>
+                    </div> -->
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label for="apellidoPaterno">Codigo de curso</label>
+                            <input class="form-control" type="text" name="ID" id="ID" required>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="apellidoMaterno">Nombre</label>
+                            <input class="form-control" type="text" name="nombre" id="nombre" required>
+                        </div>
+                        
                     </div>
+                    <div class="row">                    
+                        <div class="form-group col-md-4">
+                            <div class="form-group">
+                                <label for="nombres">Nivel</label>                                       
+                                <select name="salon_nivel" id="salon_nivel" class="form-control">
+                                    <option value="P" selected>Primaria</option>
+                                    <option value="S">Secundaria</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                                <label for="nombres">Grado</label>
+                                <input class="form-control" type="text" name="salon_grado" id="salon_grado" required>
+                        </div> 
+                    </div>
+                    <div class="row">  
+                        <div class="form-group col-md-3">
+                            <label for="fechaNacimiento">Fecha Inicio</label>
+                            <input class="form-control" type="date" name="fechaInicio" id="fechaInicio" required>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="fechaNacimiento">Fecha Fin</label>
+                            <input class="form-control" type="date" name="fechaFin" id="fechaFin" required>
+                        </div> 
+                    </div>
+                    <button class="btn btn-primary" type="submit">Grabar datos</button>
+                </form>
                 </div>
             </div>
-        </div>
+        </div>        
     </main>
     @include('footer')
     </div>
@@ -169,11 +102,25 @@
     {{--<script src="assets/demo/chart-area-demo.js"></script>
     <script src="assets/demo/chart-bar-demo.js"></script>--}}
 
+    <script>
+        $('#campo1').change(function(){
+        $('#diagnostico1').removeAttr('disabled');
+        });
+
+        $('#diagnostico1').change(function(){
+        $('#diagnostico2').removeAttr('disabled');
+        });
+
+        $('#diagnostico2').change(function(){
+        $('#diagnostico3').removeAttr('disabled');
+        });
+    </script>
+       
     <!-- script de tablas -->
     <!-- <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script> -->
-    <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
+    <!-- <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('js/dataTables.bootstrap4.min.js') }}"></script>
 
-    <script src="{{ asset('assets/demo/datatables-demo.js') }}"></script>
+    <script src="{{ asset('assets/demo/datatables-demo.js') }}"></script> -->
 @endsection
