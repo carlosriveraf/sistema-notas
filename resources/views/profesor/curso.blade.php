@@ -45,7 +45,7 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Nombre</th>
-                                    <th>Sección</th>
+                                    <th>Nivel</th>
                                     <th>Grado</th>
                                 </tr>
                             </thead>
@@ -53,7 +53,7 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Nombre</th>
-                                    <th>Sección</th>
+                                    <th>Nivel</th>
                                     <th>Grado</th>
                                 </tr>
                             </tfoot>
@@ -61,8 +61,12 @@
                                 @foreach ($cursos as $curso)
                                     <tr>
                                         <td>{{$curso->ID}}</td>
-                                        <td>{{$curso->nombre}}</td> 
-                                        <td>{{$curso->salon_seccion}}</td> 
+                                        <td>{{$curso->nombre}}</td>
+                                        @if($curso->salon_nivel == 'P')
+                                        <td>Primaria</td> 
+                                        @else
+                                        <td>Secundaria</td> 
+                                        @endif
                                         <td>{{$curso->salon_grado}}</td> 
                                     </tr>
                                 @endforeach

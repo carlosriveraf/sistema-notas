@@ -33,6 +33,6 @@ class Salon extends Model
      * @var array
      */
     protected $fillable = [
-        'grado', 'seccion', 'DNI_ADMIN', 'nivel',
+        'grado', 'nivel', 'DNI_ADMIN', 'seccion',
     ];
 }

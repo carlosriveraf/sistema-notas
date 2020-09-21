@@ -33,6 +33,6 @@ class Curso extends Model
      * @var array
      */
     protected $fillable = [
-        'ID', 'salon_grado', 'fechaInicio	', 'fechaFin', 'nombre', 'salon_seccion'
+        'ID', 'salon_grado', 'fechaInicio	', 'fechaFin', 'nombre', 'salon_nivel'
     ];
 }

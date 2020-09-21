@@ -14,7 +14,7 @@ class ProfesorCursoController extends Controller
     {
         //olis
         $cursos = ProfesorCurso::join('curso', 'profesor-curso.ID', '=', 'curso.ID')
-        ->select('curso.nombre', 'curso.ID', 'curso.salon_grado', 'curso.salon_seccion')
+        ->select('curso.nombre', 'curso.ID', 'curso.salon_grado', 'curso.salon_nivel')
         ->where('DNI', '=', Auth::user()->DNI)->get();
         return view('profesor.curso', compact('cursos'));
     }
