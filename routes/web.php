@@ -38,3 +38,5 @@ Route::resource('/usuario-registrar', 'PersonaController');
 Route::get('/curso', 'AlumnoCursoController@cursos')->name('estudiante.cursos');
 Route::get('/nota', 'AlumnoCursoController@notas')->name('estudiante.notas');
 Route::get('/asistencia', 'AsistenciaController@index')->name('estudiante.asistencias');
+
+Route::get('/info', 'PersonaController@index')->name('user.info');
