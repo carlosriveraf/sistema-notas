@@ -49,7 +49,7 @@
                         </div> -->
                         <div class="row">
                             <div class="form-group col-md-4">
-                                <label for="alumno">Cursos</label>
+                                <label for="alumno">Alumnos</label>
                                 <select name="alumno" id="alumno" class="form-control">
                                     @foreach ($nombreAlumnos as $nombreAlumno)
                                         <option value="{{ $nombreAlumno->DNI }}" selected>{{$nombreAlumno->nombres}} {{$nombreAlumno->apellidoPaterno}} {{$nombreAlumno->apellidoMaterno}}</option>
