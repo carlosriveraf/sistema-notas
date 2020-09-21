@@ -40,6 +40,9 @@ Route::get('/nota', 'AlumnoCursoController@notas')->name('estudiante.notas');
 Route::get('/asistencia', 'AsistenciaController@index')->name('estudiante.asistencias');
 
 
+Route::get('/info', 'PersonaController@index')->name('user.info');
+
+
 Route::get('/cursosDictados', 'ProfesorCursoController@cursos')->name('profesor.cursos');
 Route::get('/ingresarNotas', 'ProfesorCursoController@createIngresar')->name('profesor.ingresar');
 Route::get('/ingresarNotasAlumno', 'ProfesorCursoController@createIngresar1')->name('profesor.ingresar1');
