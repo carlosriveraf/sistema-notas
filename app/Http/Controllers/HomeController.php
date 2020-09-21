@@ -2,6 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Factoria\VistaFactoria;
+use App\Http\Controllers\Factoria\AdministradorVista;
+use App\Http\Controllers\Factoria\AlumnoVista;
+use App\Http\Controllers\Factoria\ProfesorVista;
+
 use Illuminate\Http\Request;
 use App\PersonaRol;
 use Illuminate\Support\Facades\Auth;
@@ -34,13 +39,24 @@ class HomeController extends Controller
             var_dump($persona->ID_ROL);
         } */
         $usuario = Auth::user();
-        if ($rol == "RBAC-AD") {
+
+        $factoria = new VistaFactoria();
+
+        $vista = $factoria->getVista($rol);//new VistaAlumno();
+
+        
+
+        echo $vista->retornarVista($usuario);
+
+
+
+        /* if ($rol == "RBAC-AD") {
             return view('administrador.info', compact('usuario'));
         } else if ($rol == "RBAC-ST") {            
             return view('estudiante.info', compact('usuario'));
         } else if ($rol == "RBAC-TE") {
             return view('profesor.info', compact('usuario'));
-        }
+        } */
         
         //if (Administrador::where('DNI', Auth::user()->DNI)->exists()) {
             //return view('administrador.home');
