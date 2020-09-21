@@ -32,27 +32,18 @@
         </div>
         <div class="container-fluid mt-n10">
             <div class="card mb-4">
-                <div class="card-header">
-                    Mis notas
-                </div>
+
                 <!-- Modal -->
                 <div class="card-body">
                     <div class="datatable table-responsive">
                         <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
-                                    <th>ID</th>
+                                    <th>Código</th>
                                     <th>Nombre</th>
                                     <th>Nota</th>
                                 </tr>
-                            </thead>
-                            <tfoot>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Nombre</th>
-                                    <th>Nota</th>
-                                </tr>
-                            </tfoot>
+                            </thead>                            
                             <tbody>
                                 @foreach ($notas as $nota)
                                     <tr>

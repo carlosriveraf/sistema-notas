@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
+use App\PersonaRol;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -12,10 +15,20 @@ class PersonaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    
     public function index()
     {
+        $rol = PersonaRol::where('ID_DNI', Auth::user()->DNI)->first();
+        $rol = $rol->ID_ROL;
         $usuario = Auth::user();
-        return view('info', compact('usuario'));
+        if ($rol == "RBAC-AD") {
+            return view('administrador.info', compact('usuario'));
+        } else if ($rol == "RBAC-ST") {            
+            return view('estudiante.info', compact('usuario'));
+        } else if ($rol == "RBAC-TE") {
+            return view('profesor.home');
+        }
     }
 
     /**
@@ -36,17 +49,26 @@ class PersonaController extends Controller
      */
     public function store(Request $request)
     {
-        var_dump($request->DNI);echo "<br>";
-        var_dump($request->apellidoPaterno);echo "<br>";
-        var_dump($request->apellidoMaterno);echo "<br>";
-        var_dump($request->nombres);echo "<br>";
-        var_dump($request->fechaNacimiento);echo "<br>";
-        var_dump($request->sexo);echo "<br>";
-        var_dump($request->telefono);echo "<br>";
-        var_dump($request->celular);echo "<br>";
-        var_dump($request->email);echo "<br>";
-        var_dump($request->direccion);echo "<br>";
-        echo "<br>";
+        $user = new User();
+        $user->DNI = $request->DNI;
+        $user->password = Hash::make($request->DNI);
+        $user->apellidoPaterno = $request->apellidoPaterno;
+        $user->apellidoMaterno = $request->apellidoMaterno;
+        $user->nombres = $request->nombres;
+        $user->fechaNacimiento = $request->fechaNacimiento;
+        $user->sexo = $request->sexo;
+        $user->telefono = $request->telefono;
+        $user->celular = $request->celular;
+        $user->email = $request->email;
+        $user->direccion = $request->direccion;
+        $user->save();
+
+        $u_r = new PersonaRol();
+        $u_r->ID_DNI = $request->DNI;
+        $u_r->ID_ROL = $request->nombre_rol;
+        $u_r->save();
+
+        return back();
     }
 
     /**

@@ -48,16 +48,7 @@
                                     <th>Sección</th>
                                     <th>Docente</th>
                                 </tr>
-                            </thead>
-                            <tfoot>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Nombre</th>
-                                    <th>Grado</th>
-                                    <th>Sección</th>
-                                    <th>Docente</th>
-                                </tr>
-                            </tfoot>
+                            </thead>                            
                             <tbody>
                                 @foreach ($cursos as $curso)
                                     <tr>

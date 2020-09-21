@@ -33,10 +33,11 @@ class HomeController extends Controller
         /* foreach($rol as $persona){
             var_dump($persona->ID_ROL);
         } */
+        $usuario = Auth::user();
         if ($rol == "RBAC-AD") {
-            return view('administrador.home');
-        } else if ($rol == "RBAC-ST") {
-            return view('estudiante.home');
+            return view('administrador.info', compact('usuario'));
+        } else if ($rol == "RBAC-ST") {            
+            return view('estudiante.info', compact('usuario'));
         } else if ($rol == "RBAC-TE") {
             return view('profesor.home');
         }
