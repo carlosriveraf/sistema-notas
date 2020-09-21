@@ -9,73 +9,65 @@
 
     <!-- datatable -->
     <!-- <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous"> -->
-    <link rel="stylesheet" href="{{ asset('css/dataTables.bootstrap4.min.css') }}">
+    <!-- <link rel="stylesheet" href="{{ asset('css/dataTables.bootstrap4.min.css') }}"> -->
 
     <!-- fontawesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
 @endsection
 
 @section('content')
-@section('content')
-<div id="layoutSidenav">
-    @include('profesor.nav')
-    <div id="layoutSidenav_content">
     <main>
         <div class="page-header pb-10 page-header-dark bg-gradient-primary-to-secondary">
             <div class="container-fluid">
                 <div class="page-header-content">
                     <h1 class="page-header-title">
                         <div class="page-header-icon"><i data-feather="activity"></i></div>
-                        <span>Cursos</span>
+                        <span>Registro de usuarios</span>
                     </h1>
-                    <div class="page-header-subtitle">Panel de visualización de los cursos</div>
+                    <div class="page-header-subtitle">Formulario para el registro de usuarios</div>
                 </div>
             </div>
         </div>
         <div class="container-fluid mt-n10">
             <div class="card mb-4">
-                <div class="card-header">
-                    Mis cursos
-                </div>
-                <!-- Modal -->
+                <!-- <div class="card-header">
+                    Mis salones
+                    <button class="btn btn-primary btn-sm" type="button" data-toggle="modal" data-target="#agregarSalon">
+                        Añadir
+                    </button>
+                </div> -->
                 <div class="card-body">
-                    <div class="datatable table-responsive">
-                        <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
-                        <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Nombre</th>
-                                    <th>Sección</th>
-                                    <th>Grado</th>
-                                </tr>
-                            </thead>
-                            <tfoot>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Nombre</th>
-                                    <th>Sección</th>
-                                    <th>Grado</th>
-                                </tr>
-                            </tfoot>
-                            <tbody>
-                                @foreach ($cursos as $curso)
-                                    <tr>
-                                        <td>{{$curso->ID}}</td>
-                                        <td>{{$curso->nombre}}</td> 
-                                        <td>{{$curso->salon_seccion}}</td> 
-                                        <td>{{$curso->salon_grado}}</td> 
-                                    </tr>
+                <form method="POST" action="{{ route('profesor.ingresarNotas') }}">
+                    @csrf
+                        
+                    <!-- <div class="form-group col-md-6">
+                        <label for="DNI">DNI</label>
+                        <input class="form-control" type="text" name="DNI" id="DNI" required>
+                    </div> -->
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label for="alumno">Cursos</label>
+                            <select name="alumno" id="alumno" class="form-control">
+                                @foreach ($nombreAlumnos as $nombreAlumno)
+                                    <option value="{{ $nombreAlumno->DNI }}" selected>{{$nombreAlumno->nombres}} {{$nombreAlumno->apellidoPaterno}} {{$nombreAlumno->apellidoMaterno}}</option>
                                 @endforeach
-                            </tbody>
-                        </table>
+                            </select>
+                            <input type="hidden" name="curso" value="{{ $idCurso }}">
+                        </div>
                     </div>
+                    <div class="row">
+                        <div class="form-group col-md-3">
+                                <label for="Nota">Nota</label>
+                                <input class="form-control" type="text" name="nota" id="nota" required>
+                        </div>
+                    </div>
+                    
+                    <button class="btn btn-primary" type="submit">Siguiente</button>
+                </form>
                 </div>
             </div>
         </div>
     </main>
-    @include('footer')
-    </div>
-</div>
 @endsection
 
 @section('scripts')
@@ -89,8 +81,8 @@
     <!-- script de tablas -->
     <!-- <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script> -->
-    <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
+    <!-- <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('js/dataTables.bootstrap4.min.js') }}"></script>
 
-    <script src="{{ asset('assets/demo/datatables-demo.js') }}"></script>
+    <script src="{{ asset('assets/demo/datatables-demo.js') }}"></script> -->
 @endsection

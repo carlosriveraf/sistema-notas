@@ -44,5 +44,6 @@ Route::get('/info', 'PersonaController@index')->name('user.info');
 
 
 Route::get('/cursosDictados', 'ProfesorCursoController@cursos')->name('profesor.cursos');
-Route::get('/ingresarNotas', 'ProfesorCursoController@createIngresar')->name('profesor.ingresar');
-Route::get('/ingresarNotasAlumno', 'ProfesorCursoController@createIngresar1')->name('profesor.ingresar1');
+Route::get('/ingresarNotasCurso', 'ProfesorCursoController@createIngresar')->name('profesor.ingresar');
+Route::post('/ingresarNotasAlumno', 'ProfesorCursoController@createIngresar1')->name('profesor.ingresar1');
+Route::post('/ingresarNotas', 'ProfesorCursoController@ingresarNotas')->name('profesor.ingresarNotas');
