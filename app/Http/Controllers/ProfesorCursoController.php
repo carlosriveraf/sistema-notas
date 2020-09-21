@@ -48,11 +48,27 @@ class ProfesorCursoController extends Controller
             ['ID_CURSO', '=', $request->curso]
         ])->update(['nota' => $request->nota]);
 
-        /* $aux = new AlumnoCurso();
-        $aux->DNI = $request->alumno;
-        $aux->ID = $request->curso;
-        $aux->nota = $request->nota;
-        $aux->save(); */
         return view('profesor.home');
+    }
+
+    public function reporteAlumnos()
+    {
+        $cursos = ProfesorCurso::join('curso', 'profesor-curso.ID', '=', 'curso.ID')
+        ->select('curso.nombre', 'curso.ID')
+        ->where('DNI', '=', Auth::user()->DNI)->get();
+        return view('profesor.reporteCurso', compact('cursos'));
+    }
+
+    public function reporteCompleto($id)
+    {
+        /* $alumnos = AlumnoCurso::where([
+            ['DNI_ALUMNO', '=', $id]
+        ])->get(); */
+
+        $alumnos = AlumnoCurso::join('persona', 'alumno-curso.DNI_ALUMNO', '=', 'persona.DNI')
+        ->select('persona.nombres','persona.DNI','persona.apellidoPaterno','persona.apellidoMaterno')
+        ->where('ID_CURSO', '=', $id )->get();
+
+        return view('profesor.reporteCompleto', compact('alumnos'));
     }
 }

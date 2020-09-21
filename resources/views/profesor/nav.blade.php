@@ -18,6 +18,7 @@
                     <nav class="sidenav-menu-nested nav accordion" id="accordionSidenavPages">
                         <a class="nav-link" href="{{ route('profesor.cursos') }}">Cursos Dictados</a>
                         <a class="nav-link" href="{{ route('profesor.ingresar') }}">Ingresar notas</a>
+                        <a class="nav-link" href="{{ route('profesor.alumnos') }}">Reporte de alumnos</a>
                     </nav>
                 </div>
 
