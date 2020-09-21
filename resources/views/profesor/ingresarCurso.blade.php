@@ -25,9 +25,9 @@
                     <div class="page-header-content">
                         <h1 class="page-header-title">
                             <div class="page-header-icon"><i data-feather="activity"></i></div>
-                            <span>Registro de usuarios</span>
+                            <span>Registro de notas</span>
                         </h1>
-                        <div class="page-header-subtitle">Formulario para el registro de usuarios</div>
+                        <div class="page-header-subtitle">Formulario para registrar notas de los alumnos</div>
                     </div>
                 </div>
             </div>

@@ -27,7 +27,7 @@
                             <div class="page-header-icon"><i data-feather="activity"></i></div>
                             <span>Registro de notas</span>
                         </h1>
-                        <div class="page-header-subtitle">Formulario para el registro de notas</div>
+                        <div class="page-header-subtitle">Formulario para registrar notas de los alumnos</div>
                     </div>
                 </div>
             </div>

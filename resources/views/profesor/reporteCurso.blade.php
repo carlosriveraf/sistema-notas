@@ -25,9 +25,9 @@
                 <div class="page-header-content">
                     <h1 class="page-header-title">
                         <div class="page-header-icon"><i data-feather="activity"></i></div>
-                        <span>Cursos</span>
+                        <span>Reporte de Alumnos</span>
                     </h1>
-                    <div class="page-header-subtitle">Panel de visualización de los cursos</div>
+                    <div class="page-header-subtitle">Panel de visualizacion de los reportes de alumnos por curso</div>
                 </div>
             </div>
         </div>
