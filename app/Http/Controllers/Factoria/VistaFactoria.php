@@ -9,7 +9,6 @@ class VistaFactoria {
     
     public function getVista($vista) : IVistaInfo
     {
-        echo $vista;
         switch ($vista) {
             case 'RBAC-AD':
                 return new VistaAdministrador();
