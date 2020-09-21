@@ -16,7 +16,6 @@
 @endsection
 
 @section('content')
-@section('content')
 <div id="layoutSidenav">
     @include('estudiante.nav')
     <div id="layoutSidenav_content">
