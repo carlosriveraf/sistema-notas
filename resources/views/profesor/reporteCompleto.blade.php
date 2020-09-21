@@ -16,7 +16,6 @@
 @endsection
 
 @section('content')
-@section('content')
 <div id="layoutSidenav">
     @include('profesor.nav')
     <div id="layoutSidenav_content">
@@ -49,14 +48,7 @@
                                     <th>Apellido Materno</th>
                                 </tr>
                             </thead>
-                            <tfoot>
-                                <tr>
-                                    <th>DNI</th>
-                                    <th>Nombre</th>
-                                    <th>Apellido Paterno</th>
-                                    <th>Apellido Materno</th>
-                                </tr>
-                            </tfoot>
+                            
                             <tbody>
                                 @foreach ($alumnos as $alumno)
                                     <tr>

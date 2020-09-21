@@ -16,6 +16,9 @@
 @endsection
 
 @section('content')
+<div id="layoutSidenav">
+    @include('profesor.nav')
+    <div id="layoutSidenav_content">
     <main>
         <div class="page-header pb-10 page-header-dark bg-gradient-primary-to-secondary">
             <div class="container-fluid">
@@ -60,6 +63,8 @@
             </div>
         </div>
     </main>
+    </div>
+</div>
 @endsection
 
 @section('scripts')

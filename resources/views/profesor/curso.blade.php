@@ -26,7 +26,7 @@
                 <div class="page-header-content">
                     <h1 class="page-header-title">
                         <div class="page-header-icon"><i data-feather="activity"></i></div>
-                        <span>Cursos</span>
+                        <span>Cursos Dictados</span>
                     </h1>
                     <div class="page-header-subtitle">Panel de visualización de los cursos</div>
                 </div>
@@ -49,14 +49,7 @@
                                     <th>Grado</th>
                                 </tr>
                             </thead>
-                            <tfoot>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Nombre</th>
-                                    <th>Nivel</th>
-                                    <th>Grado</th>
-                                </tr>
-                            </tfoot>
+                           
                             <tbody>
                                 @foreach ($cursos as $curso)
                                     <tr>

@@ -17,14 +17,15 @@
 
 @section('content')
     <main>
+    @include('profesor.nav')
         <div class="page-header pb-10 page-header-dark bg-gradient-primary-to-secondary">
             <div class="container-fluid">
                 <div class="page-header-content">
                     <h1 class="page-header-title">
                         <div class="page-header-icon"><i data-feather="activity"></i></div>
-                        <span>Registro de usuarios</span>
+                        <span>Registro de notas</span>
                     </h1>
-                    <div class="page-header-subtitle">Formulario para el registro de usuarios</div>
+                    <div class="page-header-subtitle">Formulario para el registro de notas</div>
                 </div>
             </div>
         </div>
