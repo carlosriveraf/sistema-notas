@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\ProfesorCurso;
+use App\AlumnoCurso;
 use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
@@ -12,9 +13,9 @@ class ProfesorCursoController extends Controller
     public function cursos()
     {
         //olis
-        $cursos = ProfesorCurso::where([
-            ['DNI', '=', Auth::user()->DNI]
-        ])->get();
+        $cursos = ProfesorCurso::join('curso', 'profesor-curso.ID', '=', 'curso.ID')
+        ->select('curso.nombre', 'curso.ID', 'curso.salon_grado', 'curso.salon_seccion')
+        ->where('DNI', '=', Auth::user()->DNI)->get();
         return view('profesor.curso', compact('cursos'));
     }
 
@@ -30,17 +31,28 @@ class ProfesorCursoController extends Controller
 
     public function createIngresar1(Request $request)
     {
-        $nombreAlumno = AlumnoCurso::join('persona', 'alumno-curso.DNI_ALUMNO', '=', 'persona.DNI')
-        ->select('persona.nombre')
+        $nombreAlumnos = AlumnoCurso::join('persona', 'alumno-curso.DNI_ALUMNO', '=', 'persona.DNI')
+        ->select('persona.nombres','persona.DNI','persona.apellidoPaterno','persona.apellidoMaterno')
         ->where([
-            ['ID_CURSO', '=', $request->IDCurso],
+            ['ID_CURSO', '=', $request->curso],
             ['nota', '=', -1]] )->get();
-        return view('profesor.ingresarAlumnoNota', compact('nombreAlumno'));
+        $idCurso = $request->curso;
+        return view('profesor.ingresarAlumnoNota', compact('nombreAlumnos','idCurso'));
     }
 
     public function ingresarNotas(Request $request)
     {
-        $aux = new ProfesorCurso();
-        $aux->DNI = $request->DNI;
+
+        AlumnoCurso::where([
+            ['DNI_ALUMNO', '=', $request->alumno],
+            ['ID_CURSO', '=', $request->curso]
+        ])->update(['nota' => $request->nota]);
+
+        /* $aux = new AlumnoCurso();
+        $aux->DNI = $request->alumno;
+        $aux->ID = $request->curso;
+        $aux->nota = $request->nota;
+        $aux->save(); */
+        return view('profesor.home');
     }
 }
