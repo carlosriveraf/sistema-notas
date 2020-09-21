@@ -17,7 +17,7 @@
                 <div class="collapse" id="collapseCursos" data-parent="#accordionSidenav">
                     <nav class="sidenav-menu-nested nav accordion" id="accordionSidenavPages">
                         <a class="nav-link" href="{{ route('profesor.cursos') }}">Cursos Dictados</a>
-                        <a class="nav-link" >Ingresar notas</a>
+                        <a class="nav-link" href="{{ route('profesor.ingresar') }}">Ingresar notas</a>
                     </nav>
                 </div>
 
