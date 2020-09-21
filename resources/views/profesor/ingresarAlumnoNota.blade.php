@@ -16,59 +16,63 @@
 @endsection
 
 @section('content')
-    <main>
+<div id="layoutSidenav">
     @include('profesor.nav')
-        <div class="page-header pb-10 page-header-dark bg-gradient-primary-to-secondary">
-            <div class="container-fluid">
-                <div class="page-header-content">
-                    <h1 class="page-header-title">
-                        <div class="page-header-icon"><i data-feather="activity"></i></div>
-                        <span>Registro de notas</span>
-                    </h1>
-                    <div class="page-header-subtitle">Formulario para el registro de notas</div>
+    <div id="layoutSidenav_content">
+        <main>
+            <div class="page-header pb-10 page-header-dark bg-gradient-primary-to-secondary">
+                <div class="container-fluid">
+                    <div class="page-header-content">
+                        <h1 class="page-header-title">
+                            <div class="page-header-icon"><i data-feather="activity"></i></div>
+                            <span>Registro de notas</span>
+                        </h1>
+                        <div class="page-header-subtitle">Formulario para el registro de notas</div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="container-fluid mt-n10">
-            <div class="card mb-4">
-                <!-- <div class="card-header">
-                    Mis salones
-                    <button class="btn btn-primary btn-sm" type="button" data-toggle="modal" data-target="#agregarSalon">
-                        Añadir
-                    </button>
-                </div> -->
-                <div class="card-body">
-                <form method="POST" action="{{ route('profesor.ingresarNotas') }}">
-                    @csrf
-                        
-                    <!-- <div class="form-group col-md-6">
-                        <label for="DNI">DNI</label>
-                        <input class="form-control" type="text" name="DNI" id="DNI" required>
+            <div class="container-fluid mt-n10">
+                <div class="card mb-4">
+                    <!-- <div class="card-header">
+                        Mis salones
+                        <button class="btn btn-primary btn-sm" type="button" data-toggle="modal" data-target="#agregarSalon">
+                            Añadir
+                        </button>
                     </div> -->
-                    <div class="row">
-                        <div class="form-group col-md-4">
-                            <label for="alumno">Cursos</label>
-                            <select name="alumno" id="alumno" class="form-control">
-                                @foreach ($nombreAlumnos as $nombreAlumno)
-                                    <option value="{{ $nombreAlumno->DNI }}" selected>{{$nombreAlumno->nombres}} {{$nombreAlumno->apellidoPaterno}} {{$nombreAlumno->apellidoMaterno}}</option>
-                                @endforeach
-                            </select>
-                            <input type="hidden" name="curso" value="{{ $idCurso }}">
+                    <div class="card-body">
+                    <form method="POST" action="{{ route('profesor.ingresarNotas') }}">
+                        @csrf
+                            
+                        <!-- <div class="form-group col-md-6">
+                            <label for="DNI">DNI</label>
+                            <input class="form-control" type="text" name="DNI" id="DNI" required>
+                        </div> -->
+                        <div class="row">
+                            <div class="form-group col-md-4">
+                                <label for="alumno">Cursos</label>
+                                <select name="alumno" id="alumno" class="form-control">
+                                    @foreach ($nombreAlumnos as $nombreAlumno)
+                                        <option value="{{ $nombreAlumno->DNI }}" selected>{{$nombreAlumno->nombres}} {{$nombreAlumno->apellidoPaterno}} {{$nombreAlumno->apellidoMaterno}}</option>
+                                    @endforeach
+                                </select>
+                                <input type="hidden" name="curso" value="{{ $idCurso }}">
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="form-group col-md-3">
-                                <label for="Nota">Nota</label>
-                                <input class="form-control" type="text" name="nota" id="nota" required>
+                        <div class="row">
+                            <div class="form-group col-md-3">
+                                    <label for="Nota">Nota</label>
+                                    <input class="form-control" type="text" name="nota" id="nota" required>
+                            </div>
                         </div>
+                        
+                        <button class="btn btn-primary" type="submit">Siguiente</button>
+                    </form>
                     </div>
-                    
-                    <button class="btn btn-primary" type="submit">Siguiente</button>
-                </form>
                 </div>
             </div>
-        </div>
-    </main>
+        </main>
+    </div>
+</div>
 @endsection
 
 @section('scripts')

@@ -12,7 +12,6 @@ class ProfesorCursoController extends Controller
 {
     public function cursos()
     {
-        //olis
         $cursos = ProfesorCurso::join('curso', 'profesor-curso.ID', '=', 'curso.ID')
         ->select('curso.nombre', 'curso.ID', 'curso.salon_grado', 'curso.salon_nivel')
         ->where('DNI', '=', Auth::user()->DNI)->get();
@@ -48,7 +47,7 @@ class ProfesorCursoController extends Controller
             ['ID_CURSO', '=', $request->curso]
         ])->update(['nota' => $request->nota]);
 
-        return view('profesor.home');
+        return redirect()->route('user.info');
     }
 
     public function reporteAlumnos()
@@ -61,10 +60,6 @@ class ProfesorCursoController extends Controller
 
     public function reporteCompleto($id)
     {
-        /* $alumnos = AlumnoCurso::where([
-            ['DNI_ALUMNO', '=', $id]
-        ])->get(); */
-
         $alumnos = AlumnoCurso::join('persona', 'alumno-curso.DNI_ALUMNO', '=', 'persona.DNI')
         ->select('persona.nombres','persona.DNI','persona.apellidoPaterno','persona.apellidoMaterno')
         ->where('ID_CURSO', '=', $id )->get();

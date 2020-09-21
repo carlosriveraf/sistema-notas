@@ -19,50 +19,50 @@
 <div id="layoutSidenav">
     @include('profesor.nav')
     <div id="layoutSidenav_content">
-    <main>
-        <div class="page-header pb-10 page-header-dark bg-gradient-primary-to-secondary">
-            <div class="container-fluid">
-                <div class="page-header-content">
-                    <h1 class="page-header-title">
-                        <div class="page-header-icon"><i data-feather="activity"></i></div>
-                        <span>Registro de usuarios</span>
-                    </h1>
-                    <div class="page-header-subtitle">Formulario para el registro de usuarios</div>
-                </div>
-            </div>
-        </div>
-        <div class="container-fluid mt-n10">
-            <div class="card mb-4">
-                <!-- <div class="card-header">
-                    Mis salones
-                    <button class="btn btn-primary btn-sm" type="button" data-toggle="modal" data-target="#agregarSalon">
-                        Añadir
-                    </button>
-                </div> -->
-                <div class="card-body">
-                <form method="POST" action="{{ route('profesor.ingresar1') }}">
-                    @csrf
-                        
-                    <!-- <div class="form-group col-md-6">
-                        <label for="DNI">DNI</label>
-                        <input class="form-control" type="text" name="DNI" id="DNI" required>
-                    </div> -->
-                    <div class="row">
-                        <div class="form-group col-md-4">
-                            <label for="curso">Cursos</label>
-                            <select name="curso" id="curso" class="form-control">
-                                @foreach ($nombreCursos as $nombreCurso)
-                                    <option value="{{ $nombreCurso->ID }}" selected>{{$nombreCurso->nombre}}</option>
-                                @endforeach
-                            </select>
-                        </div>
+        <main>
+            <div class="page-header pb-10 page-header-dark bg-gradient-primary-to-secondary">
+                <div class="container-fluid">
+                    <div class="page-header-content">
+                        <h1 class="page-header-title">
+                            <div class="page-header-icon"><i data-feather="activity"></i></div>
+                            <span>Registro de usuarios</span>
+                        </h1>
+                        <div class="page-header-subtitle">Formulario para el registro de usuarios</div>
                     </div>
-                    <button class="btn btn-primary" type="submit">Siguiente</button>
-                </form>
                 </div>
             </div>
-        </div>
-    </main>
+            <div class="container-fluid mt-n10">
+                <div class="card mb-4">
+                    <!-- <div class="card-header">
+                        Mis salones
+                        <button class="btn btn-primary btn-sm" type="button" data-toggle="modal" data-target="#agregarSalon">
+                            Añadir
+                        </button>
+                    </div> -->
+                    <div class="card-body">
+                    <form method="POST" action="{{ route('profesor.ingresar1') }}">
+                        @csrf
+                            
+                        <!-- <div class="form-group col-md-6">
+                            <label for="DNI">DNI</label>
+                            <input class="form-control" type="text" name="DNI" id="DNI" required>
+                        </div> -->
+                        <div class="row">
+                            <div class="form-group col-md-4">
+                                <label for="curso">Cursos</label>
+                                <select name="curso" id="curso" class="form-control">
+                                    @foreach ($nombreCursos as $nombreCurso)
+                                        <option value="{{ $nombreCurso->ID }}" selected>{{$nombreCurso->nombre}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary" type="submit">Siguiente</button>
+                    </form>
+                    </div>
+                </div>
+            </div>
+        </main>
     </div>
 </div>
 @endsection
