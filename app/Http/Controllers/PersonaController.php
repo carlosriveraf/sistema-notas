@@ -2,6 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Factoria\VistaFactoria;
+use App\Http\Controllers\Factoria\AdministradorVista;
+use App\Http\Controllers\Factoria\AlumnoVista;
+use App\Http\Controllers\Factoria\ProfesorVista;
+
 use App\User;
 use App\PersonaRol;
 use App\Curso;
@@ -25,13 +30,20 @@ class PersonaController extends Controller
         $rol = PersonaRol::where('ID_DNI', Auth::user()->DNI)->first();
         $rol = $rol->ID_ROL;
         $usuario = Auth::user();
-        if ($rol == "RBAC-AD") {
+
+        $factoria = new VistaFactoria();
+
+        $vista = $factoria->getVista($rol);
+
+        echo $vista->retornarVista($usuario);
+
+        /* if ($rol == "RBAC-AD") {
             return view('administrador.info', compact('usuario'));
         } else if ($rol == "RBAC-ST") {            
             return view('estudiante.info', compact('usuario'));
         } else if ($rol == "RBAC-TE") {
             return view('profesor.info', compact('usuario'));
-        }
+        } */
     }
 
     /**
