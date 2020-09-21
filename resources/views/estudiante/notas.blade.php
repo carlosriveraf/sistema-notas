@@ -49,7 +49,12 @@
                                     <tr>
                                         <td>{{$nota->ID}}</td>
                                         <td>{{$nota->nombre}}</td>
-                                        <td>{{$nota->nota}}</td>  
+                                        @if($nota->nota == '-1')
+                                            <td>Sin nota</td> 
+                                        @else
+                                            <td>{{$nota->nota}}</td>  
+                                        @endif
+                                        
                                     </tr>
                                 @endforeach
                             </tbody>

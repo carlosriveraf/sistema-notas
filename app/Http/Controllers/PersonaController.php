@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\User;
 use App\PersonaRol;
+use App\Curso;
+use App\AlumnoCurso;
+use App\ProfesorCurso;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -49,26 +52,36 @@ class PersonaController extends Controller
      */
     public function store(Request $request)
     {
-        $user = new User();
-        $user->DNI = $request->DNI;
-        $user->password = Hash::make($request->DNI);
-        $user->apellidoPaterno = $request->apellidoPaterno;
-        $user->apellidoMaterno = $request->apellidoMaterno;
-        $user->nombres = $request->nombres;
-        $user->fechaNacimiento = $request->fechaNacimiento;
-        $user->sexo = $request->sexo;
-        $user->telefono = $request->telefono;
-        $user->celular = $request->celular;
-        $user->email = $request->email;
-        $user->direccion = $request->direccion;
-        $user->save();
+         
+            $user = new User();
+            $user->DNI = $request->DNI;
+            $user->password = Hash::make($request->DNI);
+            $user->apellidoPaterno = $request->apellidoPaterno;
+            $user->apellidoMaterno = $request->apellidoMaterno;
+            $user->nombres = $request->nombres;
+            $user->fechaNacimiento = $request->fechaNacimiento;
+            $user->sexo = $request->sexo;
+            $user->telefono = $request->telefono;
+            $user->celular = $request->celular;
+            $user->email = $request->email;
+            $user->direccion = $request->direccion;
+            $user->save();
 
-        $u_r = new PersonaRol();
-        $u_r->ID_DNI = $request->DNI;
-        $u_r->ID_ROL = $request->nombre_rol;
-        $u_r->save();
+            $u_r = new PersonaRol();
+            $u_r->ID_DNI = $request->DNI;
+            $u_r->ID_ROL = $request->nombre_rol;
+            $u_r->save();
 
-        return back();
+            if($request->nombre_rol == 'RBAC-ST'){
+                return view('administrador.matricula', compact('request'));
+            } 
+            else if ($request->nombre_rol == 'RBAC-TE') {
+                $cursos = Curso::all(); 
+                return view('administrador.profesor-curso',compact ('request','cursos'));
+            }
+
+            return back();
+            
     }
 
     /**
@@ -114,6 +127,32 @@ class PersonaController extends Controller
     public function destroy($id)
     {
         //
+    }
+    
+    public function matricula(Request $request){
+        $cursos = Curso::where([
+            ['salon_nivel', '=', $request->salon_nivel],
+            ['salon_grado', '=', $request->salon_grado]
+        ])->get();
+        foreach ($cursos as $curso) {
+            $aux = new AlumnoCurso();
+            $aux->nota = -1;
+            $aux->DNI_ALUMNO = $request->DNI;
+            $aux->ID_CURSO = $curso->ID;
+            $aux->save();
+        }
+        return view('administrador.home');
+    }
+
+    public function asignarCurso(Request $request){
+        foreach ($request->ID as $key) {
+            
+            $aux = new ProfesorCurso();
+            $aux->DNI = $request->DNI;
+            $aux->ID = $key;
+            $aux->save();
+        }
+        return redirect()->route('user.info');
     }
 
 }

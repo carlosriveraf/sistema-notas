@@ -53,7 +53,8 @@
                                     <div class="form-group">
                                         <label for="nivel" class="small mb-1">Nivel</label>                                       
                                         <select name="nivel" id="nivel" class="form-control">
-                                            <option value="P" selected>Primaria</option>
+                                            <option selected>--Seleccionar--</option>
+                                            <option value="P">Primaria</option>
                                             <option value="S">Secundaria</option>
                                         </select>
                                     </div>
