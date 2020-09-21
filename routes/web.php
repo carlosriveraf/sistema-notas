@@ -47,3 +47,5 @@ Route::get('/cursosDictados', 'ProfesorCursoController@cursos')->name('profesor.
 Route::get('/ingresarNotasCurso', 'ProfesorCursoController@createIngresar')->name('profesor.ingresar');
 Route::post('/ingresarNotasAlumno', 'ProfesorCursoController@createIngresar1')->name('profesor.ingresar1');
 Route::post('/ingresarNotas', 'ProfesorCursoController@ingresarNotas')->name('profesor.ingresarNotas');
+Route::get('/reporteCursos', 'ProfesorCursoController@reporteAlumnos')->name('profesor.alumnos');
+Route::get('/reporteCursos/{id}', 'ProfesorCursoController@reporteCompleto')->name('profesor.reporte');
