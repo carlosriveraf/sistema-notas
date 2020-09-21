@@ -17,4 +17,15 @@ class ProfesorCursoController extends Controller
         ])->get();
         return view('profesor.curso', compact('cursos'));
     }
+
+    public function createIngresar()
+    {
+        
+    }
+
+    public function ingresarNotas(Request $request)
+    {
+        $aux = new ProfesorCurso();
+        $aux->DNI = $request->DNI;
+    }
 }
