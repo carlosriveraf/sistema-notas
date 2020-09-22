@@ -52,7 +52,12 @@
                                 <label for="curso">Cursos</label>
                                 <select name="curso" id="curso" class="form-control">
                                     @foreach ($nombreCursos as $nombreCurso)
-                                        <option value="{{ $nombreCurso->ID }}" selected>{{$nombreCurso->nombre}}</option>
+                                        @if( $nombreCurso->salon_nivel == 'P' )
+                                            <option value="{{ $nombreCurso->ID }}" selected>{{$nombreCurso->salon_grado}}° Grado Primaria {{$nombreCurso->nombre}} </option>
+                                        @else 
+                                            <option value="{{ $nombreCurso->ID }}" selected>{{$nombreCurso->salon_grado}}° Grado Secundaria {{$nombreCurso->nombre}} </option>
+                                        @endif
+                                        
                                     @endforeach
                                 </select>
                             </div>

@@ -22,7 +22,7 @@ class ProfesorCursoController extends Controller
     {
         
         $nombreCursos = ProfesorCurso::join('curso', 'profesor-curso.ID', '=', 'curso.ID')
-        ->select('curso.nombre', 'curso.ID')
+        ->select('curso.nombre', 'curso.ID', 'curso.salon_grado', 'curso.salon_nivel')
         ->where('DNI', '=', Auth::user()->DNI)->get();            
         
         return view('profesor.ingresarCurso', compact('nombreCursos'));
