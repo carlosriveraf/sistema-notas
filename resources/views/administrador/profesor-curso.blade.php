@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" data-search-pseudo-elements defer crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.24.1/feather.min.js" crossorigin="anonymous"></script>
+   
 @endsection
 
 @section('content')
@@ -67,8 +68,10 @@
                     </div>
                 </div>
                 <input type="hidden" value="{{$request->DNI}}" name="DNI" id="DNI">
-
-                <button class="btn btn-primary" type="submit">Asignar</button>     
+                <div class= "text-center">
+                    <button class="btn btn-primary" type="submit">Asignar Curso</button> 
+                </div>
+                    
             </form>
 
 

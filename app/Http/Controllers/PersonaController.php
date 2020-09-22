@@ -153,7 +153,7 @@ class PersonaController extends Controller
             $aux->ID_CURSO = $curso->ID;
             $aux->save();
         }
-        return view('administrador.home');
+        return redirect()->route('user.info');
     }
 
     public function asignarCurso(Request $request){
