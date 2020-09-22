@@ -42,15 +42,25 @@
                         <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                                 <tr>
+                                    <th>ID</th>
                                     <th>Curso</th>
+                                    <th>Nivel</th>
+                                    <th>Grado</th>
                                 </tr>
                             </thead>                           
                             <tbody>
                                 @foreach ($cursos as $curso)
                                     <tr>
+                                        <td>{{$curso->ID}}</td>
                                         <td>
                                             <a href="{{ route('profesor.reporte',['id'=>$curso->ID]) }}">{{$curso->nombre}}</a>
                                         </td>
+                                        @if($curso->salon_nivel == 'P')
+                                        <td>Primaria</td> 
+                                        @else
+                                        <td>Secundaria</td> 
+                                        @endif
+                                        <td>{{$curso->salon_grado}}</td> 
                                     </tr>
                                 @endforeach
                             </tbody>
