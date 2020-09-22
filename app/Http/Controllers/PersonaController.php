@@ -37,13 +37,6 @@ class PersonaController extends Controller
 
         echo $vista->retornarVista($usuario);
 
-        /* if ($rol == "RBAC-AD") {
-            return view('administrador.info', compact('usuario'));
-        } else if ($rol == "RBAC-ST") {            
-            return view('estudiante.info', compact('usuario'));
-        } else if ($rol == "RBAC-TE") {
-            return view('profesor.info', compact('usuario'));
-        } */
     }
 
     /**
@@ -153,7 +146,7 @@ class PersonaController extends Controller
             $aux->ID_CURSO = $curso->ID;
             $aux->save();
         }
-        return redirect()->route('user.info');
+        return view('administrador.home');
     }
 
     public function asignarCurso(Request $request){
